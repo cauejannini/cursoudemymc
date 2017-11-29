@@ -3,9 +3,9 @@ package br.com.cauejannini.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.cauejannini.domain.Produto;
+import br.com.cauejannini.domain.Cidade;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
+public interface CidadeRepository extends JpaRepository<Cidade, Integer>{
 
 }
