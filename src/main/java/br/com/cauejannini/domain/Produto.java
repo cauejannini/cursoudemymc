@@ -33,6 +33,10 @@ public class Produto implements Serializable {
 	)
 	private List<Categoria> categorias = new ArrayList<>();
 	
+	@JsonBackReference // json dos pedidos não deve retornar no produto
+	@ManyToMany(mappedBy="itens")
+	private List<Pedido> pedidos = new ArrayList<>();
+	
 	public Produto() {}
 
 	public Produto(Integer id, String nome, Double preco) {
