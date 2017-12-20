@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity 
@@ -27,6 +29,8 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@JsonFormat(pattern="dd/MM/yyy HH:mm")
 	private Date instante;
 	
 	@JsonManagedReference // json de pedido deve trazer o pagamento
@@ -104,6 +108,7 @@ public class Pedido implements Serializable {
 		this.itens = itens;
 	}
 
+	@JsonIgnore
 	public List<Produto> getProdutos() {
 		List<Produto> list = new ArrayList<>();
 		for (ItemPedido item: itens) {
